@@ -10,8 +10,14 @@ app.get("/", (req, res) => {
 
 // main route
 app.post("/exchangePairingToken", (req, res) => {
+  const { tokenId, deviceName } = req.body;
+  
+  // TODO: Implement actual pairing logic with Firebase
+  // For now, return a mock response for testing
   res.json({
     success: true,
+    deviceId: "device_" + Date.now(),
+    customToken: "mock_token_" + tokenId,
     message: "paired successfully"
   });
 });

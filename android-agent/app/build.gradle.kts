@@ -21,7 +21,7 @@ android {
         buildConfigField(
             "String",
             "PAIRING_ENDPOINT",
-            "\"https://us-central1-network-managment-92c59.cloudfunctions.net/exchangePairingToken\"",
+            "\"https://parental-control-backend-production-3754.up.railway.app/exchangePairingToken\"",
         )
     }
 
