@@ -6,8 +6,14 @@
     "firebase"
   ],
   "scripts": {
+    "start": "node backend/index.js",
     "web:dev": "npm --workspace admin-web run dev",
     "web:build": "npm --workspace admin-web run build",
     "firebase:build": "npm --workspace firebase run build"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^12.0.0",
+    "cors": "^2.8.5"
   }
 }
