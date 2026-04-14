@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Parental Control Agent</string>
+    <string name="foreground_notification_title">Parental Control Protection</string>
+    <string name="foreground_notification_text">Protection service is monitoring usage and sync state.</string>
+    <string name="accessibility_service_description">Monitors settings screens and raises bypass alerts.</string>
+</resources>
+

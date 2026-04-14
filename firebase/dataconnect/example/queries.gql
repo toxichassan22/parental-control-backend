@@ -1,0 +1,30 @@
+query AllCompanies @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  companies {
+    id
+    name
+    description
+    website
+    contactEmail
+  }
+}
+
+query MyCompanyAssets($companyId: UUID!) @auth(level: USER) {
+  assets(where: {companyId: {eq: $companyId}}) {
+    id
+    name
+    type
+    renewalDate
+    provider
+    description
+    cost
+    isPublic
+  }
+}
+
+mutation CreateCategory($name: String!, $description: String, $companyId: UUID!) @auth(level: USER) {
+  category_insert(data: {name: $name, description: $description, companyId: $companyId, createdAt_expr: "request.time"})
+}
+
+mutation UpdateAsset($id: UUID!, $name: String, $cost: Float) @auth(level: USER) {
+  asset_update(key: {id: $id}, data: {name: $name, cost: $cost})
+}

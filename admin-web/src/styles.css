@@ -1,0 +1,273 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(182, 226, 255, 0.75), transparent 30%),
+    linear-gradient(135deg, #f7fbff 0%, #eef5fb 100%);
+  color: #122033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  background: #153f77;
+  color: white;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #c7d5e3;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  background: white;
+}
+
+.app-shell {
+  padding: 2rem;
+}
+
+.topbar,
+.hero-card,
+.panel,
+.device-card,
+.auth-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(173, 190, 209, 0.45);
+  box-shadow: 0 16px 40px rgba(17, 44, 87, 0.08);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-radius: 26px;
+}
+
+.topbar__actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.device-card,
+.panel,
+.hero-card {
+  border-radius: 24px;
+  padding: 1rem 1.1rem;
+}
+
+.device-card {
+  text-align: right;
+}
+
+.device-card--active {
+  border-color: #153f77;
+}
+
+.device-card__top,
+.device-card__meta,
+.hero-actions,
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.device-card__meta,
+.device-card__footer,
+.muted {
+  color: #56667b;
+}
+
+.device-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: #56739d;
+  margin: 0 0 0.35rem;
+}
+
+.metric-pill,
+.status-chip {
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.84rem;
+  background: #e8eef8;
+}
+
+.status-chip--healthy {
+  background: #d8f7e6;
+}
+
+.status-chip--warning {
+  background: #fff1c9;
+}
+
+.status-chip--degraded,
+.status-chip--stale {
+  background: #ffe2cc;
+}
+
+.status-chip--locked {
+  background: #ffd9dc;
+}
+
+.facts {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.facts div,
+.usage-row,
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.full-span {
+  grid-column: 1 / -1;
+}
+
+.usage-list,
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.usage-row__value {
+  text-align: left;
+}
+
+.pairing-panel {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.pairing-secrets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: "Consolas", monospace;
+}
+
+.event-item {
+  padding: 0.8rem 0;
+  border-top: 1px solid #e6edf4;
+}
+
+.event-item:first-child {
+  border-top: 0;
+}
+
+.event-item--critical {
+  color: #8a1b2d;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+  border-radius: 28px;
+  padding: 2rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.empty-state,
+.info-banner,
+.error-banner {
+  border-radius: 20px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px dashed #bed0e6;
+}
+
+.error-banner {
+  border-style: solid;
+  border-color: #db9ca8;
+  background: #fff3f5;
+}
+
+@media (max-width: 960px) {
+  .content-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .hero-card,
+  .section-heading,
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

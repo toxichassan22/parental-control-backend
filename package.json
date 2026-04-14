@@ -1,0 +1,13 @@
+{
+  "name": "parental-control-saas",
+  "private": true,
+  "workspaces": [
+    "admin-web",
+    "firebase"
+  ],
+  "scripts": {
+    "web:dev": "npm --workspace admin-web run dev",
+    "web:build": "npm --workspace admin-web run build",
+    "firebase:build": "npm --workspace firebase run build"
+  }
+}

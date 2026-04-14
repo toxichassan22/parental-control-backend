@@ -1,0 +1,60 @@
+type Company @table {
+  name: String!
+  description: String
+  website: String
+  contactEmail: String
+  createdAt: Timestamp!
+}
+
+type User @table {
+  displayName: String!
+  email: String!
+  photoUrl: String
+  role: String
+  createdAt: Timestamp!
+  company: Company!
+}
+
+type Asset @table {
+  name: String!
+  type: String!
+  renewalDate: Date!
+  provider: String!
+  description: String
+  loginUrl: String
+  username: String
+  passwordEncrypted: String
+  cost: Float
+  notes: String
+  isPublic: Boolean
+  createdAt: Timestamp!
+  company: Company!
+}
+
+type Contact @table {
+  name: String!
+  email: String!
+  phone: String
+  role: String
+  notes: String
+  createdAt: Timestamp!
+  company: Company!
+}
+
+type AssetContact @table(key: ["asset", "contact"]) {
+  asset: Asset!
+  contact: Contact!
+  contactType: String!
+}
+
+type Category @table {
+  name: String!
+  description: String
+  createdAt: Timestamp!
+  company: Company!
+}
+
+type AssetCategory @table(key: ["asset", "category"]) {
+  asset: Asset!
+  category: Category!
+}

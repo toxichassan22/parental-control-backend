@@ -1,0 +1,154 @@
+mutation CreateDemoData @transaction @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users.") {
+  company_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Global Corp",
+      description: "A multinational corporation.",
+      website: "https://globalcorp.com",
+      contactEmail: "contact@globalcorp.com",
+      createdAt: "2023-01-01T00:00:00Z"
+    },
+    {
+      id: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      name: "Local Business LLC",
+      description: "A small local business.",
+      website: "https://localbiz.com",
+      contactEmail: "info@localbiz.com",
+      createdAt: "2023-01-15T00:00:00Z"
+    }
+  ])
+  user_insertMany(data: [
+    {
+      id: "12345678-abcd-ef01-2345-6789abcdef01",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      displayName: "Alice Smith",
+      email: "alice@globalcorp.com",
+      role: "Admin",
+      createdAt: "2023-01-02T00:00:00Z"
+    },
+    {
+      id: "87654321-fedc-ba98-7654-3210fedcba98",
+      companyId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      displayName: "Bob Johnson",
+      email: "bob@localbiz.com",
+      role: "Employee",
+      createdAt: "2023-01-16T00:00:00Z"
+    }
+  ])
+  category_insertMany(data: [
+    {
+      id: "cat1-uuid",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Software Licenses",
+      description: "Licenses for various software products.",
+      createdAt: "2023-02-01T00:00:00Z"
+    },
+    {
+      id: "cat2-uuid",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Hardware Equipment",
+      description: "Physical IT equipment like laptops and servers.",
+      createdAt: "2023-02-05T00:00:00Z"
+    },
+    {
+      id: "cat3-uuid",
+      companyId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      name: "Office Supplies",
+      description: "General office consumables.",
+      createdAt: "2023-02-10T00:00:00Z"
+    }
+  ])
+  asset_insertMany(data: [
+    {
+      id: "asset1-uuid",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Adobe Creative Cloud",
+      type: "Software",
+      renewalDate: "2024-03-01",
+      provider: "Adobe",
+      description: "Subscription for creative software suite.",
+      cost: 59.99,
+      isPublic: false,
+      createdAt: "2023-03-01T00:00:00Z"
+    },
+    {
+      id: "asset2-uuid",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Dell XPS 15",
+      type: "Hardware",
+      renewalDate: "2025-01-01",
+      provider: "Dell",
+      description: "Laptop for development team.",
+      cost: 1800.00,
+      isPublic: false,
+      createdAt: "2023-03-05T00:00:00Z"
+    },
+    {
+      id: "asset3-uuid",
+      companyId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      name: "Microsoft Office 365",
+      type: "Software",
+      renewalDate: "2024-06-01",
+      provider: "Microsoft",
+      description: "Subscription for office productivity suite.",
+      cost: 12.50,
+      isPublic: false,
+      createdAt: "2023-03-10T00:00:00Z"
+    }
+  ])
+  assetCategory_insertMany(data: [
+    {
+      assetId: "asset1-uuid",
+      categoryId: "cat1-uuid"
+    },
+    {
+      assetId: "asset2-uuid",
+      categoryId: "cat2-uuid"
+    },
+    {
+      assetId: "asset3-uuid",
+      categoryId: "cat1-uuid"
+    },
+    {
+      assetId: "asset3-uuid",
+      categoryId: "cat3-uuid"
+    }
+  ])
+  contact_insertMany(data: [
+    {
+      id: "contact1-uuid",
+      companyId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      name: "Charlie Brown",
+      email: "charlie@globalcorp.com",
+      phone: "555-123-4567",
+      role: "IT Manager",
+      createdAt: "2023-04-01T00:00:00Z"
+    },
+    {
+      id: "contact2-uuid",
+      companyId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      name: "Diana Prince",
+      email: "diana@localbiz.com",
+      phone: "555-987-6543",
+      role: "Owner",
+      createdAt: "2023-04-05T00:00:00Z"
+    }
+  ])
+  assetContact_insertMany(data: [
+    {
+      assetId: "asset1-uuid",
+      contactId: "contact1-uuid",
+      contactType: "Support"
+    },
+    {
+      assetId: "asset2-uuid",
+      contactId: "contact1-uuid",
+      contactType: "Support"
+    },
+    {
+      assetId: "asset3-uuid",
+      contactId: "contact2-uuid",
+      contactType: "Billing"
+    }
+  ])
+}
